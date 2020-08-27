@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.cimvvm.ui.viewmodel.MainViewModel"/>
+    </data>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_playground_background"
+        app:alignContent="center"
+        app:alignItems="center"
+        app:flexDirection="column"
+        app:flexWrap="wrap"
+        app:justifyContent="center">
+
+        <TextView
+            android:id="@+id/app_title"
+            android:text="@string/app_title"
+            android:layout_marginTop="-60dp"
+            android:layout_marginBottom="30dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="66sp"
+            android:textColor="@color/colorMatchList"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/data_recycler_view"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            app:adapter="@{viewModel.adapter}"
+            app:data="@{viewModel.data}"
+            tools:context="com.example.cimvvm.ui.view.MainActivity"/>
+
+
+        <TextView
+            android:id="@+id/match_download"
+            android:onClick="@{viewModel.onOpenDownloadDialog}"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/match_download"
+            android:layout_marginTop="30dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="25sp"
+            android:textColor="@color/colorDownloadMatch"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+</layout>
